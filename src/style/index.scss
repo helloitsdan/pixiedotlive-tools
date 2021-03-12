@@ -1,10 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Varela Round', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+    'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  background: #fff8fa;
+  color: #b74362;
 }
 
 code {
@@ -15,6 +20,7 @@ code {
 h1 {
   margin: 0 0 1rem;
   text-align: center;
+  color: #672658;
 }
 
 input {
@@ -22,6 +28,8 @@ input {
   height: 3em;
   padding-left: 1em;
   width: 100%;
+  border: 1px solid #672658;
+  color: currentColor;
 }
 
 details {
@@ -32,6 +40,7 @@ summary {
   font-size: 0.85em;
   font-weight: bold;
   margin-bottom: 0.66rem;
+  color: #672658;
 }
 
 pre {
@@ -70,8 +79,8 @@ pre {
 .c-output {
   box-sizing: border-box;
   min-height: 100%;
-  background: #2d2d2d;
-  color: #cccccc;
+  background: #672658;
+  color: #fff7fd;
   padding: 1em;
   font-size: 1.2em;
 }
