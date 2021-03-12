@@ -50,6 +50,7 @@ pre {
 .o-scaffolding__sidebar {
   flex-basis: 33%;
   min-width: 20em;
+  flex-shrink: 0;
 }
 
 .o-scaffolding__output {
@@ -58,6 +59,7 @@ pre {
 
 .c-sidebar {
   position: sticky;
+  top: 0;
   padding: 1em;
 }
 
