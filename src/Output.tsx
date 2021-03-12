@@ -11,7 +11,7 @@ const SINGLE_FILE_TEMPLATE = Hogan.compile(
 
 LoadPlugin("{{ffms2}}")
 
-FFmpegSource2("{{file}}", fpsnum=60, atrack=-1)
+FFmpegSource2("{{path}}{{file}}", fpsnum=60, atrack=-1)
 
 Trim({{startFrame}}, {{endFrame}})
 FadeIn(180)
