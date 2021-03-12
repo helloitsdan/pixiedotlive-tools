@@ -1,5 +1,3 @@
-/// <reference types="react-scripts" />
-
 declare module 'hogan.js'
 
 interface AvisynthOptions {
