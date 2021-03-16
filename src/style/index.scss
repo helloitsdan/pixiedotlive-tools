@@ -30,6 +30,7 @@ input {
   width: 100%;
   border: 1px solid #672658;
   color: currentColor;
+  border-radius: 2px;
 }
 
 details {
@@ -45,6 +46,16 @@ summary {
 
 pre {
   margin: 0;
+}
+
+button {
+  border-radius: 0.25em;
+  padding: 0.5em 0.75em;
+  appearance: none;
+  background: none;
+  border: 2px solid currentColor;
+  color: currentColor;
+  font-size: 1em;
 }
 
 .o-scaffolding {
@@ -81,8 +92,19 @@ pre {
   min-height: 100%;
   background: #672658;
   color: #fff7fd;
-  padding: 1em;
+}
+
+.c-output__script {
   font-size: 1.2em;
+  padding: 1em;
+}
+
+.c-output__menu {
+  position: sticky;
+  top: 0;
+  padding: 1em;
+  background: inherit;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
 }
 
 .c-label {

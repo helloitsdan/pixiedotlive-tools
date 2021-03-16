@@ -1,7 +1,10 @@
-import { useMemo, FunctionComponent } from 'react'
+import { useMemo, useCallback, FunctionComponent } from 'react'
 import Hogan from 'hogan.js'
+import FileSaver from 'file-saver'
 
 import getFramesForTimespan from './utils/getFramesForTimespan'
+
+const FILENAME_REGEX = /^(?:.*[\\/])*(?<filename>.*)\..*$/
 
 const SINGLE_FILE_TEMPLATE = Hogan.compile(
   `
@@ -35,9 +38,25 @@ interface OutputProps {
 const Output: FunctionComponent<OutputProps> = ({ options }) => {
   const avisynthScript = useAvisynthScript(options)
 
+  const filename = useMemo(() => {
+    const match = options.file.match(FILENAME_REGEX)
+    return `${match?.groups?.filename || 'script'}.avs`
+  }, [options])
+
+  const onDownload = useCallback(() => {
+    const blob = new Blob([avisynthScript], {
+      type: 'text/plain;charset=utf-8'
+    })
+    FileSaver.saveAs(blob, filename)
+  }, [filename, avisynthScript])
+
   return (
     <div className="c-output">
-      <pre>{avisynthScript}</pre>
+      <nav className="c-output__menu">
+        <button onClick={onDownload}>Download {filename}</button>
+      </nav>
+
+      <pre className="c-output__script">{avisynthScript}</pre>
     </div>
   )
 }
