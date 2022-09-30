@@ -2,7 +2,7 @@ import { useMemo, useCallback, FunctionComponent } from 'react'
 import Hogan from 'hogan.js'
 import FileSaver from 'file-saver'
 
-import getFramesForTimespan from './utils/getFramesForTimespan'
+import getFramesForTimespan from '../utils/getFramesForTimespan'
 
 const FILENAME_REGEX = /^(?:.*[\\/])*(?<filename>.*)\..*$/
 
@@ -35,7 +35,7 @@ interface OutputProps {
   options: AvisynthOptions
 }
 
-const Output: FunctionComponent<OutputProps> = ({ options }) => {
+const Output: FunctionComponent<React.PropsWithChildren<OutputProps>> = ({ options }) => {
   const avisynthScript = useAvisynthScript(options)
 
   const filename = useMemo(() => {
@@ -47,6 +47,7 @@ const Output: FunctionComponent<OutputProps> = ({ options }) => {
     const blob = new Blob([avisynthScript], {
       type: 'text/plain;charset=utf-8'
     })
+
     FileSaver.saveAs(blob, filename)
   }, [filename, avisynthScript])
 

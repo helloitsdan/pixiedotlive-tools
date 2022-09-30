@@ -1,25 +1,14 @@
-import Sidebar from './Sidebar'
-import Output from './Output'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
-import useLocalStorage from './effects/useLocalStorage'
+import AviSynth from './modules/AviSynth'
 
-const App = () => {
-  const [input, setInput] = useLocalStorage<AvisynthOptions>(
-    'avisynthOptions',
-    { ffms2: '', path: '', file: '', start: '', end: '' }
-  )
-
-  return (
-    <div className="o-scaffolding">
-      <div className="o-scaffolding__sidebar">
-        <Sidebar input={input} onSubmit={setInput} />
-      </div>
-
-      <div className="o-scaffolding__output">
-        <Output options={input} />
-      </div>
-    </div>
-  )
-}
+const App = () => (
+  <BrowserRouter>
+    <Routes>
+      <Route path="avisynth" element={<AviSynth />} />
+      <Route index element={<>💖</>} />
+    </Routes>
+  </BrowserRouter>
+)
 
 export default App

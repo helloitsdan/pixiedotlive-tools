@@ -4,7 +4,7 @@ interface LabelProps {
   text: string
 }
 
-const Label: FunctionComponent<LabelProps> = ({ text, children }) => (
+const Label: FunctionComponent<React.PropsWithChildren<LabelProps>> = ({ text, children }) => (
   <label className="c-label">
     <span className="c-label__text">{text}</span>
     {children}

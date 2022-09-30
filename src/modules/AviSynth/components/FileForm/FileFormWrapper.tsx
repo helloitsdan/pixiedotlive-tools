@@ -1,7 +1,7 @@
 import { FunctionComponent, useMemo } from 'react'
 import { Formik } from 'formik'
 
-import FileForm from './components/FileForm'
+import FileForm from './FileForm'
 
 const DEFAULT_VALUES = {
   ffms2: '',
@@ -26,7 +26,7 @@ const Sidebar: FunctionComponent<SidebarProps> = ({ input, onSubmit }) => {
   )
 
   return (
-    <Formik
+    <Formik<AvisynthOptions>
       initialValues={initialValues}
       onSubmit={onSubmit}
       component={FileForm}

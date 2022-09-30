@@ -1,18 +1,14 @@
 import { FunctionComponent, useEffect } from 'react'
-import { Field } from 'formik'
-import Label from './Label'
+import { Field, FormikProps } from 'formik'
 
-interface FileFormProps {
-  values: AvisynthOptions
-  handleSubmit: (values: AvisynthOptions) => void
-}
+import Label from '../../../../components/Label'
 
-const FileForm: FunctionComponent<FileFormProps> = ({
+const FileForm: FunctionComponent<FormikProps<AvisynthOptions>> = ({
   values,
   handleSubmit
 }) => {
   useEffect(() => {
-    handleSubmit(values)
+    handleSubmit()
   }, [handleSubmit, values])
 
   return (
