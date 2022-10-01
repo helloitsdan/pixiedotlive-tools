@@ -1,5 +1,5 @@
 import { FunctionComponent, useEffect } from 'react'
-import { Field, FormikProps, FieldArray } from 'formik'
+import { Form, Field, FormikProps, FieldArray } from 'formik'
 import { DateTime } from 'luxon'
 
 import Label from '../../../../components/Label'
@@ -63,7 +63,7 @@ const ScheduleForm: FunctionComponent<FormikProps<ScheduleOptions>> = ({
   }, [handleSubmit, values])
 
   return (
-    <>
+    <Form>
       <div className="c-sidebar__field">
         <Label text="Theme">
           <Field as="select" name="theme">
@@ -86,11 +86,16 @@ const ScheduleForm: FunctionComponent<FormikProps<ScheduleOptions>> = ({
               />
             ))}
 
-            <button onClick={() => arrayHelpers.push('')}>Add day</button>
+            <span className="o-flex">
+              <button type="button" onClick={() => arrayHelpers.push('')}>
+                Add day
+              </button>
+              <button type="submit">Save</button>
+            </span>
           </>
         )}
       />
-    </>
+    </Form>
   )
 }
 
