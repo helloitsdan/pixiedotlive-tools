@@ -11,12 +11,15 @@ const DEFAULT_VALUES = {
   end: ''
 }
 
-interface SidebarProps {
+interface FileFormWrapperProps {
   input?: AvisynthOptions
   onSubmit: (input: AvisynthOptions) => void
 }
 
-const Sidebar: FunctionComponent<SidebarProps> = ({ input, onSubmit }) => {
+const FileFormWrapper: FunctionComponent<FileFormWrapperProps> = ({
+  input,
+  onSubmit
+}) => {
   const initialValues = useMemo(
     () => ({
       ...DEFAULT_VALUES,
@@ -34,4 +37,4 @@ const Sidebar: FunctionComponent<SidebarProps> = ({ input, onSubmit }) => {
   )
 }
 
-export default Sidebar
+export default FileFormWrapper

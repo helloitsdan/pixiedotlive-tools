@@ -31,11 +31,13 @@ const useAvisynthScript = (options: AvisynthOptions) =>
     })
   }, [options])
 
-interface OutputProps {
+interface AvisynthOutputProps {
   options: AvisynthOptions
 }
 
-const Output: FunctionComponent<React.PropsWithChildren<OutputProps>> = ({ options }) => {
+const AvisynthOutput: FunctionComponent<
+  React.PropsWithChildren<AvisynthOutputProps>
+> = ({ options }) => {
   const avisynthScript = useAvisynthScript(options)
 
   const filename = useMemo(() => {
@@ -62,4 +64,4 @@ const Output: FunctionComponent<React.PropsWithChildren<OutputProps>> = ({ optio
   )
 }
 
-export default Output
+export default AvisynthOutput

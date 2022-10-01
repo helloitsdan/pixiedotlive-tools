@@ -12,9 +12,7 @@ const FileForm: FunctionComponent<FormikProps<AvisynthOptions>> = ({
   }, [handleSubmit, values])
 
   return (
-    <div className="c-sidebar">
-      <h1>avisynth</h1>
-
+    <>
       <details>
         <summary>Environment Config</summary>
 
@@ -52,7 +50,7 @@ const FileForm: FunctionComponent<FormikProps<AvisynthOptions>> = ({
           </Label>
         </div>
       </details>
-    </div>
+    </>
   )
 }
 
