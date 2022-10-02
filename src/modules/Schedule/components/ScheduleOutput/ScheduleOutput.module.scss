@@ -1,0 +1,33 @@
+.ScheduleOutput {
+  position: relative;
+  margin: 1em;
+  width: 1280px;
+  height: 720px;
+
+  --schedule-bg-color: #fff;
+  --schedule-color: #2c1320;
+}
+
+.ScheduleOutput__Layer,
+.ScheduleOutput__Background,
+.ScheduleOutput__Cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  color: var(--schedule-color);
+}
+
+.ScheduleOutput__Background {
+  background: var(--schedule-bg-color);
+}
+
+.ScheduleOutput__Cover {
+  fill: var(--schedule-bg-color);
+}
+
+.ScheduleOutput__Schedule {
+  padding: 43px 35px;
+}

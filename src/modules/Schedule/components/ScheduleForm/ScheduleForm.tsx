@@ -1,4 +1,4 @@
-import { FunctionComponent, useEffect } from 'react'
+import { FunctionComponent } from 'react'
 import { Form, Field, FormikProps, FieldArray } from 'formik'
 import { DateTime } from 'luxon'
 
@@ -57,46 +57,41 @@ const ScheduleDayField: FunctionComponent<ScheduleDayFieldProps> = ({
 const ScheduleForm: FunctionComponent<FormikProps<ScheduleOptions>> = ({
   values,
   handleSubmit
-}) => {
-  useEffect(() => {
-    handleSubmit()
-  }, [handleSubmit, values])
+}) => (
+  <Form>
+    <div className="c-sidebar__field">
+      <Label text="Theme">
+        <Field as="select" name="theme">
+          <option value="lili-clouds">Clouds Heart (@lili_lyrical)</option>
+          <option value="raco-heart">Heart Hands (@racochan99)</option>
+          <option value="k420ub-gao">Gao (@k420ub)</option>
+        </Field>
+      </Label>
+    </div>
 
-  return (
-    <Form>
-      <div className="c-sidebar__field">
-        <Label text="Theme">
-          <Field as="select" name="theme">
-            <option value="lili-clouds">Clouds Heart (@lili_lyrical)</option>
-            <option value="raco-heart">Heart Hands (@racochan99)</option>
-            <option value="k420ub-gao">Gao (@k420ub)</option>
-          </Field>
-        </Label>
-      </div>
+    <FieldArray
+      name="days"
+      render={(arrayHelpers) => (
+        <>
+          {values.days.map((item, index) => (
+            <ScheduleDayField
+              item={item}
+              index={index}
+              onRemove={() => arrayHelpers.remove(index)}
+            />
+          ))}
 
-      <FieldArray
-        name="days"
-        render={(arrayHelpers) => (
-          <>
-            {values.days.map((item, index) => (
-              <ScheduleDayField
-                item={item}
-                index={index}
-                onRemove={() => arrayHelpers.remove(index)}
-              />
-            ))}
+          <span className="o-flex">
+            <button type="button" onClick={() => arrayHelpers.push('')}>
+              Add day
+            </button>
 
-            <span className="o-flex">
-              <button type="button" onClick={() => arrayHelpers.push('')}>
-                Add day
-              </button>
-              <button type="submit">Save</button>
-            </span>
-          </>
-        )}
-      />
-    </Form>
-  )
-}
+            <button type="submit">Save</button>
+          </span>
+        </>
+      )}
+    />
+  </Form>
+)
 
 export default ScheduleForm
