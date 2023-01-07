@@ -4,6 +4,8 @@ import FileSaver from 'file-saver'
 
 import getFramesForTimespan from '../utils/getFramesForTimespan'
 
+import classes from './AvisynthOutput.module.scss'
+
 const FILENAME_REGEX = /^(?:.*[\\/])*(?<filename>.*)\..*$/
 
 const SINGLE_FILE_TEMPLATE = Hogan.compile(
@@ -54,12 +56,12 @@ const AvisynthOutput: FunctionComponent<
   }, [filename, avisynthScript])
 
   return (
-    <div className="c-output">
-      <nav className="c-output__menu">
+    <div className={classes['c-output']}>
+      <nav className={classes['c-output__menu']}>
         <button onClick={onDownload}>Download {filename}</button>
       </nav>
 
-      <pre className="c-output__script">{avisynthScript}</pre>
+      <pre className={classes['c-output__script']}>{avisynthScript}</pre>
     </div>
   )
 }

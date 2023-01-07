@@ -1,12 +1,17 @@
 import { FunctionComponent, useMemo } from 'react'
 import { Formik } from 'formik'
+import { DateTime } from 'luxon'
 
 import ScheduleForm from './ScheduleForm'
 import { ScheduleOptions } from '../../types'
 
-const DEFAULT_VALUES = {
-  theme: 'lili',
-  days: []
+export const DEFAULT_SCHEDULE_VALUES = {
+  week: DateTime.now().toFormat("kkkk'-W'WW"),
+  days: new Array(7).fill({
+    time: '',
+    title: '',
+    description: ''
+  })
 }
 
 interface ScheduleFormWrapperProps {
@@ -20,7 +25,7 @@ const ScheduleFormWrapper: FunctionComponent<ScheduleFormWrapperProps> = ({
 }) => {
   const initialValues = useMemo(
     () => ({
-      ...DEFAULT_VALUES,
+      ...DEFAULT_SCHEDULE_VALUES,
       ...input
     }),
     [input]

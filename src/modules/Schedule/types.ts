@@ -5,6 +5,6 @@ export interface ScheduleDay {
 }
 
 export interface ScheduleOptions {
-  theme: string
+  week: string
   days: ScheduleDay[]
 }

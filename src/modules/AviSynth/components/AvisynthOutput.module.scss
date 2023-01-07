@@ -1,0 +1,19 @@
+.c-output {
+  box-sizing: border-box;
+  min-height: 100%;
+  background: #672658;
+  color: #fff7fd;
+}
+
+.c-output__script {
+  font-size: 1.2em;
+  padding: 1em;
+}
+
+.c-output__menu {
+  position: sticky;
+  top: 0;
+  padding: 1em;
+  background: inherit;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}

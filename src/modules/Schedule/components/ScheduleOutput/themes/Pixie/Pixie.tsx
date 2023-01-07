@@ -2,18 +2,21 @@ import { DateTime } from 'luxon'
 import { FunctionComponent } from 'react'
 import { ScheduleDay } from '../../../../types'
 
-import Cover from '../../Cover'
+import Cover from './Cover'
 import { ScheduleOutputProps } from '../../ScheduleOutput'
 
 import getDayWithOrdinal from '../../utils/getDayWithOrdinal'
 
 import classes from '../../ScheduleOutput.module.scss'
 
-import bg from './lili-clouds-bg.png'
-import dani from './lili-clouds-dani.png'
-
-const LiliCloudsItem: FunctionComponent<{ item: ScheduleDay }> = ({ item }) => {
+const PixieScheduleItem: FunctionComponent<{ item: ScheduleDay }> = ({
+  item
+}) => {
   const stream = DateTime.fromISO(item.time)
+
+  if (!stream.isValid) {
+    return null
+  }
 
   return (
     <div>
@@ -26,28 +29,18 @@ const LiliCloudsItem: FunctionComponent<{ item: ScheduleDay }> = ({ item }) => {
   )
 }
 
-const LiliClouds: FunctionComponent<ScheduleOutputProps> = ({ options }) => (
+const Pixie: FunctionComponent<ScheduleOutputProps> = ({ options }) => (
   <div>
-    <div className={classes.ScheduleOutput__Background} />
-
-    <div className={classes.ScheduleOutput__Layer}>
-      <img src={bg} alt="" />
-    </div>
-
     <Cover />
 
     <div className={classes.ScheduleOutput__Layer}>
       <div className={classes.ScheduleOutput__Schedule}>
-        {options.days.map((item) => (
-          <LiliCloudsItem item={item} />
-        ))}
+        {options.days.map(
+          (item, idx) => item && <PixieScheduleItem key={idx} item={item} />
+        )}
       </div>
-    </div>
-
-    <div className={classes.ScheduleOutput__Layer}>
-      <img src={dani} alt="" />
     </div>
   </div>
 )
 
-export default LiliClouds
+export default Pixie

@@ -1,33 +1,18 @@
 .ScheduleOutput {
   position: relative;
-  margin: 1em;
   width: 1280px;
   height: 720px;
 
-  --schedule-bg-color: #fff;
-  --schedule-color: #2c1320;
+  background: repeating-conic-gradient(#ccc 0% 25%, #fff 0% 50%) 50% / 20px 20px;
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
 }
 
 .ScheduleOutput__Layer,
-.ScheduleOutput__Background,
-.ScheduleOutput__Cover {
+.ScheduleOutput__Background {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-
-  color: var(--schedule-color);
-}
-
-.ScheduleOutput__Background {
-  background: var(--schedule-bg-color);
-}
-
-.ScheduleOutput__Cover {
-  fill: var(--schedule-bg-color);
-}
-
-.ScheduleOutput__Schedule {
-  padding: 43px 35px;
 }

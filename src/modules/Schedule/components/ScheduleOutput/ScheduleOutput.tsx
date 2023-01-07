@@ -1,8 +1,9 @@
+import { useParams } from 'react-router-dom'
 import { FunctionComponent } from 'react'
 
 import { ScheduleOptions } from '../../types'
 
-import LiliClouds from './themes/LiliClouds'
+import PixieTheme from './themes/Pixie'
 
 import classes from './ScheduleOutput.module.scss'
 
@@ -13,9 +14,11 @@ export interface ScheduleOutputProps {
 const ScheduleOutput: FunctionComponent<
   React.PropsWithChildren<ScheduleOutputProps>
 > = ({ options }) => {
+  const { theme } = useParams()
+
   return (
     <div className={classes.ScheduleOutput}>
-      <LiliClouds options={options} />
+      <PixieTheme options={options} />
     </div>
   )
 }

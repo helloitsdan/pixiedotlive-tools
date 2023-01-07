@@ -1,0 +1,71 @@
+.c-schedule-form__header {
+  position: sticky;
+  box-sizing: border-box;
+  z-index: 99;
+  background: #fff8fa;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  border-bottom: 2px solid #b74362;
+}
+
+.c-schedule-form__week {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  margin: 1em;
+
+  h1 {
+    margin: 0 1em;
+    flex-shrink: 0;
+    flex-grow: 0;
+  }
+}
+
+.c-schedule-form__days {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: stretch;
+  justify-content: stretch;
+  margin: 1em 0;
+  padding: 0 1em;
+  border-bottom: 2px solid #b74362;
+}
+
+.c-schedule-form__day {
+  appearance: none;
+  margin: 0 -1px -2px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  flex-grow: 1;
+  display: block;
+  border-color: #ffd6e2;
+  border-bottom-color: #b74362;
+
+  &--active {
+    position: relative;
+    z-index: 2;
+    border-color: #b74362;
+    border-bottom-color: #fff8fa;
+    font-weight: bold;
+  }
+}
+
+.c-schedule-form__fields {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  margin: 1em 0;
+}
+
+.c-schedule-form__field {
+  margin: 0 1em;
+  flex-grow: 1;
+}
+
+.c-schedule-form__submit {
+  margin-top: 1.4em;
+}

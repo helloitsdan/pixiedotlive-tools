@@ -1,0 +1,28 @@
+.o-scaffolding {
+  min-height: 100vh;
+
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: stretch;
+  justify-content: stretch;
+}
+
+.o-scaffolding__sidebar {
+  flex-basis: 33%;
+  min-width: 20em;
+  flex-shrink: 0;
+}
+
+.o-scaffolding__page {
+  flex-grow: 1;
+}
+
+.c-sidebar {
+  position: sticky;
+  top: 0;
+  padding: 1em;
+}
+
+.c-sidebar__field {
+  margin: 0 0 1em;
+}

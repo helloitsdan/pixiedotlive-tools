@@ -6,6 +6,8 @@ import AvisynthOutput from './components/AvisynthOutput'
 
 import useLocalStorage from '../../effects/useLocalStorage'
 
+import classes from './AviSynth.module.scss'
+
 const AviSynth: FunctionComponent = () => {
   const [input, setInput] = useLocalStorage<AvisynthOptions>('avisynth.input', {
     ffms2: '',
@@ -19,16 +21,16 @@ const AviSynth: FunctionComponent = () => {
     <>
       <Helmet title="AviSynth script creator" />
 
-      <div className="o-scaffolding">
-        <div className="o-scaffolding__sidebar">
-          <div className="c-sidebar">
+      <div className={classes['o-scaffolding']}>
+        <div className={classes['o-scaffolding__sidebar']}>
+          <div className={classes['c-sidebar']}>
             <h1>avisynth</h1>
 
             <FileForm input={input} onSubmit={setInput} />
           </div>
         </div>
 
-        <div className="o-scaffolding__page">
+        <div className={classes['o-scaffolding__page']}>
           <AvisynthOutput options={input} />
         </div>
       </div>
