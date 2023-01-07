@@ -64,7 +64,7 @@ const ScheduleForm: FunctionComponent<FormikProps<ScheduleOptions>> = ({
           </div>
 
           <button className={classes['c-schedule-form__submit']} type="submit">
-            Save
+            Update
           </button>
         </div>
       </Form>
