@@ -29,9 +29,10 @@ const ScheduleForm: FunctionComponent<
     <div className={classes['c-schedule-form__header']}>
       <Form>
         <div className={classes['c-schedule-form__week']}>
-          <h1>schedule for </h1>
+          <h1>schedule</h1>
 
-          <Field as="input" type="date" step="7" name="week" />
+          <label htmlFor="week">for the week of</label>
+          <Field as="input" type="date" step="7" id="week" name="week" />
 
           <button type="button" onClick={onDownloadSchedule}>
             Download

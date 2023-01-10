@@ -1,12 +1,8 @@
 .c-schedule-form__header {
-  position: sticky;
   box-sizing: border-box;
-  z-index: 99;
+  flex-shrink: 0;
   overflow: hidden;
   background: #fff8fa;
-  top: 0;
-  left: 0;
-  right: 0;
   border-bottom: 2px solid #b74362;
 }
 
