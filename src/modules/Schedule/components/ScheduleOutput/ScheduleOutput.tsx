@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom'
-import { FunctionComponent } from 'react'
+import { forwardRef } from 'react'
 
 import { ScheduleOptions } from '../../types'
 
@@ -11,18 +11,20 @@ export interface ScheduleOutputProps {
   options: ScheduleOptions
 }
 
-const ScheduleOutput: FunctionComponent<
-  React.PropsWithChildren<ScheduleOutputProps>
-> = ({ options }) => {
-  const { theme } = useParams()
+const ScheduleOutput = forwardRef<HTMLDivElement, ScheduleOutputProps>(
+  ({ options }, ref) => {
+    const { theme } = useParams()
 
-  console.log(`Current theme: ${theme}`)
+    console.log(`Current theme: ${theme}`)
 
-  return (
-    <div className={classes.ScheduleOutput}>
-      <PixieTheme options={options} />
-    </div>
-  )
-}
+    return (
+      <div className={classes.ScheduleOutputWrapper}>
+        <div ref={ref} className={classes.ScheduleOutput}>
+          <PixieTheme options={options} />
+        </div>
+      </div>
+    )
+  }
+)
 
 export default ScheduleOutput

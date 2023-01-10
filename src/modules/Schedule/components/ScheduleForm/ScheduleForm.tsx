@@ -9,9 +9,13 @@ import { ScheduleOptions } from '../../types'
 
 import classes from './ScheduleForm.module.scss'
 
-const ScheduleForm: FunctionComponent<FormikProps<ScheduleOptions>> = ({
-  values
-}) => {
+interface ScheduleFormProps {
+  onDownloadSchedule: () => void
+}
+
+const ScheduleForm: FunctionComponent<
+  FormikProps<ScheduleOptions> & ScheduleFormProps
+> = ({ onDownloadSchedule, values }) => {
   const [currentDay, setCurrentDay] = useState(0)
   const days = useMemo(
     () =>
@@ -26,7 +30,12 @@ const ScheduleForm: FunctionComponent<FormikProps<ScheduleOptions>> = ({
       <Form>
         <div className={classes['c-schedule-form__week']}>
           <h1>schedule for </h1>
-          <Field as="input" type="week" name="week" />
+
+          <Field as="input" type="date" step="7" name="week" />
+
+          <button type="button" onClick={onDownloadSchedule}>
+            Download
+          </button>
         </div>
 
         <div className={classes['c-schedule-form__days']}>

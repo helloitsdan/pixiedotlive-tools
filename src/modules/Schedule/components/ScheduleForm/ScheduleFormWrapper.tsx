@@ -6,7 +6,7 @@ import ScheduleForm from './ScheduleForm'
 import { ScheduleOptions } from '../../types'
 
 export const DEFAULT_SCHEDULE_VALUES = {
-  week: DateTime.now().toFormat("kkkk'-W'WW"),
+  week: DateTime.now().startOf('week').toISODate(),
   days: new Array(7).fill({
     time: '',
     title: '',
@@ -17,10 +17,12 @@ export const DEFAULT_SCHEDULE_VALUES = {
 interface ScheduleFormWrapperProps {
   input?: ScheduleOptions
   onSubmit: (input: ScheduleOptions) => void
+  onDownloadSchedule: () => void
 }
 
 const ScheduleFormWrapper: FunctionComponent<ScheduleFormWrapperProps> = ({
   input,
+  onDownloadSchedule,
   onSubmit
 }) => {
   const initialValues = useMemo(
@@ -32,11 +34,11 @@ const ScheduleFormWrapper: FunctionComponent<ScheduleFormWrapperProps> = ({
   )
 
   return (
-    <Formik<ScheduleOptions>
-      initialValues={initialValues}
-      onSubmit={onSubmit}
-      component={ScheduleForm}
-    />
+    <Formik<ScheduleOptions> initialValues={initialValues} onSubmit={onSubmit}>
+      {(props) => (
+        <ScheduleForm {...props} onDownloadSchedule={onDownloadSchedule} />
+      )}
+    </Formik>
   )
 }
 
