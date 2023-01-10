@@ -12,6 +12,8 @@ import ScheduleOutput from './components/ScheduleOutput'
 
 import { ScheduleOptions } from './types'
 
+import classes from './Schedule.module.scss'
+
 const Schedule: FunctionComponent = () => {
   const [input, setInput] = useLocalStorage<ScheduleOptions>(
     'schedule.input',
@@ -34,13 +36,15 @@ const Schedule: FunctionComponent = () => {
     <>
       <Helmet title="Schedule creator" />
 
-      <ScheduleForm
-        input={input}
-        onSubmit={setInput}
-        onDownloadSchedule={onDownloadSchedule}
-      />
+      <div className={classes.Schedule}>
+        <ScheduleForm
+          input={input}
+          onSubmit={setInput}
+          onDownloadSchedule={onDownloadSchedule}
+        />
 
-      <ScheduleOutput ref={scheduleElRef} options={input} />
+        <ScheduleOutput ref={scheduleElRef} options={input} />
+      </div>
     </>
   )
 }
